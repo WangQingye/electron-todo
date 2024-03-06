@@ -1,17 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <el-tabs type="border-card" v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+    <el-tab-pane label="今日任务" name="today">
+      <Content />
+    </el-tab-pane>
+  </el-tabs>
+  <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import Card from './components/TaskItem.vue'
+import Content from './components/Content.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+const activeName = "today"
+
 </script>
 
 <style>
@@ -21,6 +22,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding: 10px;
+  min-width: 300px;
+}
+.el-timeline-item__wrapper {
+  padding-left: 20px;
 }
 </style>
